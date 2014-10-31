@@ -279,13 +279,13 @@ void process_image (char *p)
 			data[0] = 1.164*(*p-16)+1.569*((*(p+3))-128);
 			data[1] = 1.164*(*p-16)-0.391*((*(p+1))-128)-0.813*((*(p+3))-128);
 			data[2] = 1.164*(*p-16)+2.018*((*(p+1))-128);
-			for(cnt=0 ; cnt<=3 ; cnt++){
-			if(data[cnt]>255){
-				data[cnt]=255;
-				}
-			if(data[cnt]<0){
-				data[cnt]=0;
-				}
+			for(cnt=0 ; cnt<=2 ; cnt++){
+			    if(data[cnt]>255){
+				    data[cnt]=255;
+				    }
+			    if(data[cnt]<0){
+				    data[cnt]=0;
+				    }
 			}
 
 			img[i][j*6 + 0] = data[0];
@@ -296,7 +296,7 @@ void process_image (char *p)
 			data[4] = 1.164*((*(p+2))-16)-0.391*((*(p+1))-128)-0.813*((*(p+3))-128);
 			data[5] = 1.164*((*(p+2))-16)+2.018*((*(p+1))-128);
 
-			for(cnt=0 ; cnt<=3 ; cnt++){
+			for(cnt=3 ; cnt<=5 ; cnt++){
 			if(data[cnt]>255){
 				data[cnt]=255;
 				}
