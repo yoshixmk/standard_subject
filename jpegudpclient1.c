@@ -24,6 +24,7 @@
 // getaddrinfo用
 #include <netdb.h>
 
+#include "save_jpeg.c"
 
 //--------------------------------------------------------------
 
@@ -41,8 +42,7 @@ int ore_connect( char *host, int port )
     struct addrinfo hints;      // bind用ヒント
     struct addrinfo *ai;        // bind用アドレス情報
     char portstr[16];
-    int result;
-
+    int result;
 
     // 接続先の情報を設定
     memset(&hints,0,sizeof(hints));
@@ -135,6 +135,8 @@ int main( int argc, char **argv )
     char *host;     // 接続先IPアドレス
     int port;       // 接続先ポート番号
     
+         
+    main_filemake();
     if( argc<3 ){
         printf("usage: %s <ipaddress> <port>\n",argv[0]);
         exit(0);

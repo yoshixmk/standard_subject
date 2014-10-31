@@ -24,7 +24,6 @@
 // getaddrinfo用
 #include <netdb.h>
 
-
 //! 待ち受けポート番号
 #define MYPORT  50000
 
