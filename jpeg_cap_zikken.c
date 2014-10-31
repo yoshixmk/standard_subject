@@ -83,8 +83,6 @@ static int read_frame(void)
     assert(buf.index < n_buffers);
     process_image(buffers[buf.index].start); // フレームを処理
     xioctl(fd, VIDIOC_QBUF, &buf);	   // 使用したバッファをincoming queueに入れる
-	
-	hyozi();
     return 1;
 }
 
@@ -124,6 +122,7 @@ static void mainloop(void)
                 printf("EAGAIN\n");
             }
               // EAGAIN : outgoing queueが空のとき繰り返す
+            
         }
    }
 }
@@ -237,9 +236,11 @@ int main(int argc, char *argv[])
     open_device();		//　ビデオバイスをオープン
     init_device();		//　ビデオデバイスを初期化
     start_capturing();		//　画像キャプチャ開始
-	while(deal != 1){
+	while(1){
     mainloop();			//　メインループ処理
-	//hyozi();
+	hyozi();
+        if(deal==-1 || deal==0) break;
+//おれこねくとで転送内容を書いていく。
 	}
     stop_capturing();		//　画像キャプチャ停止
     uninit_device();		//　初期化前の状態に戻す
@@ -330,9 +331,7 @@ void process_image (char *p)
 			img[i][j*6 + 4] = data[4];
 			img[i][j*6 + 5] = data[5];
 
-			p = p + 4;
-
-			/*
+			p = p + 4;			/*
 			R = 1.164*(y2-16)+1.569*(v-128);
 			G = 1.164*(y2-16)-0.391*(u-128)-0.813*(v-128);
 			B = 1.164*(y2-16)+2.018*(u-128);
@@ -354,10 +353,6 @@ void process_image (char *p)
 	free( img );
 	fclose( fp );
 }
-
-
-
-
 
 void hyozi(void){
 	int fd;
