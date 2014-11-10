@@ -32,7 +32,7 @@ int main(void){
 	cinfo.err = jpeg_std_error(&jerr);
 	jpeg_create_decompress(&cinfo);
 
-	fp = fopen("image_test.jpeg","rb");
+	fp = fopen("output.jpg","rb");
 	jpeg_stdio_src(&cinfo,fp);
 
 	jpeg_read_header(&cinfo,TRUE);
@@ -55,8 +55,8 @@ int main(void){
 		jpeg_read_scanlines(&cinfo,img	+cinfo.output_scanline,cinfo.output_height-cinfo.output_scanline);
 	}
 
-	p = (char*)mmap(0,size,PROT_READ | PROT_WRITE,MAP_SHARED,fd,0);h
-	for(j = 0; j<height; j++){
+	p = (char*)mmap(0,size,PROT_READ | PROT_WRITE,MAP_SHARED,fd,0);
+    for(j = 0; j<height; j++){
 		p1=img[j];
 		for(i=0;i<width; i++){
 			pct=0;

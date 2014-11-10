@@ -236,11 +236,24 @@ int main(int argc, char *argv[])
     open_device();		//　ビデオバイスをオープン
     init_device();		//　ビデオデバイスを初期化
     start_capturing();		//　画像キャプチャ開始
+    
 	while(1){
-    mainloop();			//　メインループ処理
-	hyozi();
-        if(deal==-1 || deal==0) break;
-//おれこねくとで転送内容を書いていく。
+        sd = ore_connect( host, port );
+        if( sd<0 ){
+            //sleep(1);
+            continue;
+         }
+        mainloop();			//　メインループ処理
+	    //hyozi();
+       if(deal==-1 || deal==0) break;
+//せんどさんぷるで転送内容を書いていく。
+       for(;;){
+            result = sendsample(sd);
+            //sleep(1);
+            if( result<=0 ) break;
+        }
+
+
 	}
     stop_capturing();		//　画像キャプチャ停止
     uninit_device();		//　初期化前の状態に戻す
@@ -296,9 +309,7 @@ void process_image (char *p)
 	JSAMPARRAY img = (JSAMPARRAY) malloc(sizeof(JSAMPROW) * height);
 	for (i = 0; i < height; i++) {
 		img[i] = (JSAMPROW) malloc(sizeof(JSAMPLE) * 3 * width);
-		for (j = 0; j < width/2; j++) {
-
-			data[0] = 1.164*(*p-16)+1.569*((*(p+3))-128);
+		for (j = 0; j < width/2; j++) {			data[0] = 1.164*(*p-16)+1.569*((*(p+3))-128);
 			data[1] = 1.164*(*p-16)-0.391*((*(p+1))-128)-0.813*((*(p+3))-128);
 			data[2] = 1.164*(*p-16)+2.018*((*(p+1))-128);
 			for(cnt=0 ; cnt<=2 ; cnt++){
@@ -488,33 +499,60 @@ void hyozi(void){
 int sendsample( int sd )
 {
     int len;
-    char buf[256];
+    char buf[1024];
     int result;
-    
-    
-    // 書く
-    strcpy( buf, "01234567890123456789" );
-    len = strlen(buf);
-    
-    result = write( sd, buf, len );
-    if( result==0 ){
-        return 0;
-    }else if( result<0 ){
-        perror("write");
-        return -1;
+    struct stat stbuf;
+    static offset;
+    FILE	*fp;
+	char 	*filename = "output.jpg";
+    int i,sz,fd;
+    if ((fp = fopen(filename, "rb"))== NULL) {
+		fprintf(stderr, "cannot open %s\n", filename);
+		exit(EXIT_FAILURE);
+	}
+    fd=open("output.jpg", O_RDONLY);
+    //fseek(fp,0,SEEK_END);
+    //sz=ftell(fp);
+    //fseek(fp,0,SEEK_SET);
+    fstat(fd, &stbuf);
+    sz = stbuf.st_size;
+    printf("%d\n",sz);
+    sz*=2;
+    while(offset<sz){
+        //fseek(fp,0,offset);
+        offset += 1024;
+        
+        fread(buf,sizeof(char),1024,fp);
+        
+        result = write( sd, buf, 1024);
+        if( result==0 ){
+            return 0;
+        }else if( result<0 ){
+            perror("write");
+            return -1;
+        }
+        printf("%d:send:%.*s\n",sd,result,buf);
+
+        // 読む
+        result = read( sd, buf, 1024);
+        if( result==0 ){
+            return 0;
+        }else if( result<0 ){
+            perror("read");
+            return -1;
+        }
+        printf("%d:recv:%.*s\n",sd,len,buf);
     }
+    fread(buf,sizeof(char),1024+sz-offset,fp);
+    for(i=offset-sz; i<=1024; i++){
+        buf[i]=0;
+    }
+    write( sd, buf, 1024);
     printf("%d:send:%.*s\n",sd,result,buf);
 
-    // 読む
-    result = read( sd, buf, sizeof(buf) );
-    if( result==0 ){
-        return 0;
-    }else if( result<0 ){
-        perror("read");
-        return -1;
-    }
-    printf("%d:recv:%.*s\n",sd,len,buf);
-    
-    
+    offset=0;
+    fclose( fp );
+    printf("end\n");
+while(1);
     return 1;
 }
