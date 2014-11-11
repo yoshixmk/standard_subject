@@ -249,7 +249,6 @@ int main(int argc, char *argv[])
 //せんどさんぷるで転送内容を書いていく。
        for(;;){
             result = sendsample(sd);
-            //sleep(1);
             if( result<=0 ) break;
         }
 
@@ -502,22 +501,26 @@ int sendsample( int sd )
     char buf[1024];
     int result;
     struct stat stbuf;
-    static offset;
+    static int offset,sz;
     FILE	*fp;
 	char 	*filename = "output.jpg";
-    int i,sz,fd;
+    int i,fd;
     if ((fp = fopen(filename, "rb"))== NULL) {
 		fprintf(stderr, "cannot open %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
-    fd=open("output.jpg", O_RDONLY);
-    //fseek(fp,0,SEEK_END);
-    //sz=ftell(fp);
-    //fseek(fp,0,SEEK_SET);
-    fstat(fd, &stbuf);
-    sz = stbuf.st_size;
-    printf("%d\n",sz);
-    sz*=2;
+    //fd=open("output.jpg", O_RDONLY);
+    if(offset==0){
+        fseek(fp,0,SEEK_END);
+        sz=ftell(fp);
+        fseek(fp,0,SEEK_SET);
+    }
+    //fstat(fd, &stbuf);
+    //sz = stbuf.st_size;
+    //printf("%d\n",sz);
+
+printf("\ntest\n");
+
     while(offset<sz){
         //fseek(fp,0,offset);
         offset += 1024;
@@ -525,14 +528,17 @@ int sendsample( int sd )
         fread(buf,sizeof(char),1024,fp);
         
         result = write( sd, buf, 1024);
+
+        printf("%d:send:",sd);
+        for(i=0; i<1024;i++){
+            printf("%c",buf[i]);
+        }
         if( result==0 ){
             return 0;
         }else if( result<0 ){
             perror("write");
             return -1;
         }
-        printf("%d:send:%.*s\n",sd,result,buf);
-
         // 読む
         result = read( sd, buf, 1024);
         if( result==0 ){
@@ -541,18 +547,18 @@ int sendsample( int sd )
             perror("read");
             return -1;
         }
-        printf("%d:recv:%.*s\n",sd,len,buf);
+        //printf("%d:recv:%.*s\n",sd,len,buf);
     }
-    fread(buf,sizeof(char),1024+sz-offset,fp);
-    for(i=offset-sz; i<=1024; i++){
+    for(i=offset-sz; i<1024; i++){
         buf[i]=0;
-    }
+    }    
+    fread(buf,sizeof(char),offset-sz,fp);
     write( sd, buf, 1024);
-    printf("%d:send:%.*s\n",sd,result,buf);
+    //printf("%d:send:%.*s\n",sd,result,buf);
 
     offset=0;
     fclose( fp );
-    printf("end\n");
+    printf("\nend\n");
 while(1);
     return 1;
 }
