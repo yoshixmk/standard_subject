@@ -505,6 +505,8 @@ int sendsample( int sd )
     FILE	*fp;
 	char 	*filename = "output.jpg";
     int i,fd;
+FILE *fp_test;
+fp_test = fopen("output_test.jpg", "ab");
     if ((fp = fopen(filename, "rb"))== NULL) {
 		fprintf(stderr, "cannot open %s\n", filename);
 		exit(EXIT_FAILURE);
@@ -517,17 +519,17 @@ int sendsample( int sd )
     }
     //fstat(fd, &stbuf);
     //sz = stbuf.st_size;
-    //printf("%d\n",sz);
+    printf("%d\n",sz);
 
 printf("\ntest\n");
 
     while(offset<sz){
         //fseek(fp,0,offset);
         offset += 1024;
-        
         fread(buf,sizeof(char),1024,fp);
         
         result = write( sd, buf, 1024);
+fwrite(buf,sizeof(char),1024,fp_test);
 
         printf("%d:send:",sd);
         for(i=0; i<1024;i++){
@@ -549,15 +551,17 @@ printf("\ntest\n");
         }
         //printf("%d:recv:%.*s\n",sd,len,buf);
     }
+    fread(buf,sizeof(char),1024,fp);
     for(i=offset-sz; i<1024; i++){
         buf[i]=0;
     }    
     fread(buf,sizeof(char),offset-sz,fp);
     write( sd, buf, 1024);
     //printf("%d:send:%.*s\n",sd,result,buf);
-
+fwrite(buf,sizeof(char),1024,fp_test);
     offset=0;
     fclose( fp );
+    fclose( fp_test );
     printf("\nend\n");
 while(1);
     return 1;
