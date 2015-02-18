@@ -1,0 +1,6 @@
+digraph "C:/StandardSubject/pre_Programs" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_85c01df5595c349a8435a545ff34eadf [shape=box, label="pre_Programs", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_85c01df5595c349a8435a545ff34eadf.html"];
+}

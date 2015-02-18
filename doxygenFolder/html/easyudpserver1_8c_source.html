@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>remoteMonitoringSystem: C:/StandardSubject/easyudpserver1.c ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="images.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">remoteMonitoringSystem
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">ロボットアームによる遠隔監視システム</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>総合概要</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li><a href="globals.html"><span>大域各種</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('easyudpserver1_8c_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/StandardSubject/easyudpserver1.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="easyudpserver1_8c.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">// gcc -Wall -o easyudpserver1 easyudpserver1.c</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// socket用</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;netinet/ip.h&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// read用</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// perror用</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// exit用</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// memset用</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">// signal用</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;signal.h&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// getaddrinfo用</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;netdb.h&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;sys/ioctl.h&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;sys/mman.h&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;linux/fb.h&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;fcntl.h&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;jpeglib.h&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="easyudpserver1_8c.html#a6a6a184fc039ef0296a7009f60722011">   35</a></span>&#160;<span class="preprocessor">#define MYPORT  50000</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">//--------------------------------------------------------------</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="easyudpserver1_8c.html#ae488f24d0b4f62881de16b8b4e39c63a">   47</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="easyudpserver1_8c.html#ae488f24d0b4f62881de16b8b4e39c63a">ore_listen</a>( <span class="keywordtype">int</span> port )</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">int</span> sd;                 <span class="comment">// 待ち受けソケット</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">struct </span>addrinfo hints;  <span class="comment">// bind用ヒント</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">struct </span>addrinfo *ai;    <span class="comment">// bind用アドレス情報</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">char</span> portstr[16];</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">int</span> opt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">int</span> result;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">// listenポートの情報を設定</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    memset(&amp;hints,0,<span class="keyword">sizeof</span>(hints));</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    hints.ai_flags       = AI_PASSIVE | AI_ADDRCONFIG;  <span class="comment">// 待ち受けの指定</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    hints.ai_family      = AF_UNSPEC;   <span class="comment">// IPv6/IPv4 両方</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    hints.ai_socktype    = SOCK_DGRAM;  <span class="comment">// UDP です</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    snprintf( portstr, <span class="keyword">sizeof</span>(portstr), <span class="stringliteral">&quot;%d&quot;</span>, port );   <span class="comment">// 待ち受けポート番号を文字列にする</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    result = getaddrinfo( NULL, portstr, &amp;hints, &amp;ai );</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span>( result!=0 ){</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        fprintf( stderr,<span class="stringliteral">&quot;getaddrinfo: %s\n&quot;</span>, gai_strerror(result) );</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">// 待ち受けソケット作成</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    sd = socket( ai-&gt;ai_family, ai-&gt;ai_socktype, ai-&gt;ai_protocol );</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span>( sd&lt;0 ){</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        perror(<span class="stringliteral">&quot;socket&quot;</span>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        freeaddrinfo(ai);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">// ソケットオプション登録</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    opt = 1;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    setsockopt( sd, SOL_SOCKET, SO_REUSEADDR, &amp;opt, <span class="keyword">sizeof</span>(opt) );</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">// バインド</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    result = bind( sd, ai-&gt;ai_addr, ai-&gt;ai_addrlen );</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">if</span>( result&lt;0 ){</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        perror(<span class="stringliteral">&quot;bind&quot;</span>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="bootstrap_8min_8js.html#a314ce17330af946811d51efef6a5b8d0">close</a>(sd);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        freeaddrinfo(ai);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">// 用が済んだのでアドレス情報を開放</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    freeaddrinfo(ai);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> sd;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="easyudpserver1_8c.html#a6b234dd146bb1f393e2b5cd6d948ede2">  107</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="easyudpserver1_8c.html#a6b234dd146bb1f393e2b5cd6d948ede2">echosample</a>( <span class="keywordtype">int</span> sd )</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;{</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    ssize_t len;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">char</span> buf[1024];</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keyword">struct </span>sockaddr_storage addr;   <span class="comment">// ソケットアドレス</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    socklen_t addrlen;              <span class="comment">// ソケットアドレス長</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">char</span> host[256];</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">int</span> result;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    FILE    *fp;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">char</span>    *filename = <span class="stringliteral">&quot;output.jpg&quot;</span>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">if</span> ((fp = fopen(filename, <span class="stringliteral">&quot;ab&quot;</span>))== NULL) {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        fprintf(stderr, <span class="stringliteral">&quot;cannot open %s\n&quot;</span>, filename);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="comment">// 読む</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    addrlen = <span class="keyword">sizeof</span>(addr);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    len = recvfrom( sd, buf, 1024, 0, (<span class="keyword">struct</span> sockaddr*)&amp;addr, &amp;addrlen );<span class="comment">//sizeof(buf)=1024</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">if</span>( len&lt;0 ){</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        perror(<span class="stringliteral">&quot;recvfrom&quot;</span>);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="comment">// 相手の名前を表示（無くても構わない）</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    result = getnameinfo( (<span class="keyword">struct</span> sockaddr*)&amp;addr, addrlen, host, <span class="keyword">sizeof</span>(host), NULL, 0, NI_NUMERICHOST );</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">if</span>( result!=0 ){</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        fprintf( stderr,<span class="stringliteral">&quot;getnameinfo: %s\n&quot;</span>, gai_strerror(result) );</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        printf(<span class="stringliteral">&quot;connected by %s\n&quot;</span>,host);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    printf(<span class="stringliteral">&quot;%d:recv:%.*s\n&quot;</span>,sd,len,buf);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="comment">// 書く</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    sendto( sd, buf, len, 0, (<span class="keyword">struct</span> sockaddr*)&amp;addr, addrlen );</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    fprintf(fp,<span class="stringliteral">&quot;%s&quot;</span>,buf);<span class="comment">//add in file</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    fclose(fp);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;}</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="easyudpserver1_8c.html#a4d3f33afe6d414d0bf7ab49ee278ce38">  147</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="easyudpserver1_8c.html#a4d3f33afe6d414d0bf7ab49ee278ce38">jpeg_showing</a>(<span class="keywordtype">void</span>){</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">int</span> fd;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">int</span> j,i;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    fd = open(<span class="stringliteral">&quot;/dev/fb0&quot;</span>,O_RDWR);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keyword">struct </span>fb_fix_screeninfo finfo;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    ioctl(fd,FBIOGET_FSCREENINFO,&amp;finfo);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">struct </span>fb_var_screeninfo vinfo;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    ioctl(fd,FBIOGET_VSCREENINFO,&amp;vinfo);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">int</span> width = vinfo.xres;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">int</span> height = vinfo.yres;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">int</span> depth = vinfo.bits_per_pixel;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">int</span> size = width*height*depth / 8;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordtype">int</span> ox = vinfo.xoffset;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordtype">int</span> oy = vinfo.yoffset;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordtype">int</span> len = finfo.line_length;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordtype">char</span> *p;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *p1;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    FILE *fp;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">int</span> r,g,<a class="code" href="bootstrap_8min_8js.html#ac0431efac4d7c393d1e70b86115cb93f">b</a>;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> pct;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keyword">struct </span>jpeg_decompress_struct cinfo;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keyword">struct </span>jpeg_error_mgr jerr;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    cinfo.err = jpeg_std_error(&amp;jerr);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    jpeg_create_decompress(&amp;cinfo);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    fp = fopen(<span class="stringliteral">&quot;output.jpeg&quot;</span>,<span class="stringliteral">&quot;rb&quot;</span>);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    jpeg_stdio_src(&amp;cinfo,fp);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    jpeg_read_header(&amp;cinfo,TRUE);<span class="comment">//ここでSegmentationFault</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    jpeg_start_decompress(&amp;cinfo);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    width = cinfo.output_width;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    height = cinfo.output_height;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    JSAMPARRAY img;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    img = (JSAMPARRAY)malloc(<span class="keyword">sizeof</span>(JSAMPROW)*height);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordflow">for</span>(i=0;i&lt;height;i++){</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        img[i] = (JSAMPROW)calloc(<span class="keyword">sizeof</span>(JSAMPLE),3*width);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    }</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordflow">while</span>(cinfo.output_scanline &lt; cinfo.output_height)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    {</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        jpeg_read_scanlines(&amp;cinfo,img  +cinfo.output_scanline,cinfo.output_height-cinfo.output_scanline);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    }</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    p = (<span class="keywordtype">char</span>*)mmap(0,size,PROT_READ | PROT_WRITE,MAP_SHARED,fd,0);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordflow">for</span>(j = 0; j&lt;height; j++){</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        p1=img[j];</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordflow">for</span>(i=0;i&lt;width; i++){</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            pct=0;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            r=*p1++;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            g=*p1++;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            b=*p1++;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            r=r*32/256;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            g=g*64/256;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            b=b*32/256;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            pct=pct | r;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            pct=pct&lt;&lt;6;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            pct=pct | g;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            pct=pct&lt;&lt;5;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            pct=pct | <a class="code" href="bootstrap_8min_8js.html#ac0431efac4d7c393d1e70b86115cb93f">b</a>;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            <span class="comment">//printf(&quot;%d,%d,%d\n&quot;,r,g,b);</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            <span class="keywordtype">int</span> index = (ox+i) * (depth/8)+(oy+j) * len;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            *((<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <span class="keywordtype">int</span> *)(p + index))=pct;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        }</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    }</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    munmap(p,size);</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    jpeg_finish_decompress(&amp;cinfo);</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    jpeg_destroy_decompress(&amp;cinfo);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <a class="code" href="bootstrap_8min_8js.html#a314ce17330af946811d51efef6a5b8d0">close</a>(fd);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    fclose(fp);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordflow">for</span>(i=0;i&lt;height;i++)free(img[i]);</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    free(img);</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;}</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment">//--------------------------------------------------------------</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
+<div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="easyudpserver1_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">  230</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="easyudpserver1_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>( <span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv )</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;{</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordtype">int</span> sd;         <span class="comment">// 通信ソケット</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    signal(SIGPIPE, SIG_IGN);   <span class="comment">// PIPE切断シグナルを無視する</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="comment">// 待ち受けソケット作成</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    sd = <a class="code" href="easyudpserver1_8c.html#ae488f24d0b4f62881de16b8b4e39c63a">ore_listen</a>( <a class="code" href="easyudpserver1_8c.html#a6a6a184fc039ef0296a7009f60722011">MYPORT</a> );</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordflow">if</span>( sd&lt;0 ){</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        exit(1);</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    }</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    </div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="comment">// メインロジック部分呼び出し</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keywordflow">for</span>(;;){</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        <a class="code" href="easyudpserver1_8c.html#a6b234dd146bb1f393e2b5cd6d948ede2">echosample</a>(sd);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="comment">//jpeg_showing();</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    }</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;}</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
+<div class="ttc" id="easyudpserver1_8c_html_ae488f24d0b4f62881de16b8b4e39c63a"><div class="ttname"><a href="easyudpserver1_8c.html#ae488f24d0b4f62881de16b8b4e39c63a">ore_listen</a></div><div class="ttdeci">int ore_listen(int port)</div><div class="ttdoc">待ち受けソケット作成 </div><div class="ttdef"><b>Definition:</b> <a href="easyudpserver1_8c_source.html#l00047">easyudpserver1.c:47</a></div></div>
+<div class="ttc" id="easyudpserver1_8c_html_a4d3f33afe6d414d0bf7ab49ee278ce38"><div class="ttname"><a href="easyudpserver1_8c.html#a4d3f33afe6d414d0bf7ab49ee278ce38">jpeg_showing</a></div><div class="ttdeci">void jpeg_showing(void)</div><div class="ttdef"><b>Definition:</b> <a href="easyudpserver1_8c_source.html#l00147">easyudpserver1.c:147</a></div></div>
+<div class="ttc" id="easyudpserver1_8c_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="easyudpserver1_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdoc">メインルーチン </div><div class="ttdef"><b>Definition:</b> <a href="easyudpserver1_8c_source.html#l00230">easyudpserver1.c:230</a></div></div>
+<div class="ttc" id="bootstrap_8min_8js_html_a314ce17330af946811d51efef6a5b8d0"><div class="ttname"><a href="bootstrap_8min_8js.html#a314ce17330af946811d51efef6a5b8d0">close</a></div><div class="ttdeci">c prototype close</div><div class="ttdef"><b>Definition:</b> <a href="bootstrap_8min_8js_source.html#l00009">bootstrap.min.js:9</a></div></div>
+<div class="ttc" id="easyudpserver1_8c_html_a6a6a184fc039ef0296a7009f60722011"><div class="ttname"><a href="easyudpserver1_8c.html#a6a6a184fc039ef0296a7009f60722011">MYPORT</a></div><div class="ttdeci">#define MYPORT</div><div class="ttdoc">待ち受けポート番号 </div><div class="ttdef"><b>Definition:</b> <a href="easyudpserver1_8c_source.html#l00035">easyudpserver1.c:35</a></div></div>
+<div class="ttc" id="easyudpserver1_8c_html_a6b234dd146bb1f393e2b5cd6d948ede2"><div class="ttname"><a href="easyudpserver1_8c.html#a6b234dd146bb1f393e2b5cd6d948ede2">echosample</a></div><div class="ttdeci">void echosample(int sd)</div><div class="ttdoc">メインロジック部分 </div><div class="ttdef"><b>Definition:</b> <a href="easyudpserver1_8c_source.html#l00107">easyudpserver1.c:107</a></div></div>
+<div class="ttc" id="bootstrap_8min_8js_html_ac0431efac4d7c393d1e70b86115cb93f"><div class="ttname"><a href="bootstrap_8min_8js.html#ac0431efac4d7c393d1e70b86115cb93f">b</a></div><div class="ttdeci">var b</div><div class="ttdef"><b>Definition:</b> <a href="bootstrap_8min_8js_source.html#l00009">bootstrap.min.js:9</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="easyudpserver1_8c.html">easyudpserver1.c</a></li>
+    <li class="footer">2015年02月18日(水) 19時43分45秒作成 - remoteMonitoringSystem / 構成: 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

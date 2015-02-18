@@ -1,0 +1,10 @@
+digraph "C:/StandardSubject/Theme" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_2c44d5571b5a8f93f3627c04b7ef88a6 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_2c44d5571b5a8f93f3627c04b7ef88a6.html"];
+    dir_2c44d5571b5a8f93f3627c04b7ef88a6 [shape=plaintext label="Theme"];
+    dir_6bddfbb0650a0a9853e6cc3440d06c34 [shape=box label="assets" color="red" fillcolor="white" style="filled" URL="dir_6bddfbb0650a0a9853e6cc3440d06c34.html"];
+  }
+}

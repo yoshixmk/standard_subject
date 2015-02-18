@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>remoteMonitoringSystem: 大域各種</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="images.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">remoteMonitoringSystem
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">ロボットアームによる遠隔監視システム</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>総合概要</span></a></li>
+      <li><a href="annotated.html"><span>データ構造</span></a></li>
+      <li class="current"><a href="files.html"><span>ファイル</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="検索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>ファイル一覧</span></a></li>
+      <li class="current"><a href="globals.html"><span>大域各種</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow3" class="tabs2">
+    <ul class="tablist">
+      <li><a href="globals.html"><span>全て</span></a></li>
+      <li class="current"><a href="globals_func.html"><span>関数</span></a></li>
+      <li><a href="globals_vars.html"><span>変数</span></a></li>
+      <li><a href="globals_enum.html"><span>列挙型</span></a></li>
+      <li><a href="globals_eval.html"><span>列挙値</span></a></li>
+      <li><a href="globals_defs.html"><span>マクロ定義</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow4" class="tabs3">
+    <ul class="tablist">
+      <li><a href="#index_a"><span>a</span></a></li>
+      <li><a href="#index_b"><span>b</span></a></li>
+      <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_d"><span>d</span></a></li>
+      <li><a href="#index_e"><span>e</span></a></li>
+      <li><a href="#index_f"><span>f</span></a></li>
+      <li><a href="#index_g"><span>g</span></a></li>
+      <li><a href="#index_h"><span>h</span></a></li>
+      <li><a href="#index_i"><span>i</span></a></li>
+      <li><a href="#index_j"><span>j</span></a></li>
+      <li><a href="#index_l"><span>l</span></a></li>
+      <li><a href="#index_m"><span>m</span></a></li>
+      <li><a href="#index_n"><span>n</span></a></li>
+      <li><a href="#index_o"><span>o</span></a></li>
+      <li><a href="#index_p"><span>p</span></a></li>
+      <li><a href="#index_r"><span>r</span></a></li>
+      <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
+      <li><a href="#index_u"><span>u</span></a></li>
+      <li class="current"><a href="#index_x"><span>x</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('globals_func.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="contents">
+&#160;
+
+<h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>a()
+: <a class="el" href="bootstrap_8min_8js.html#a7318f59fb86a4437995ee89c780c51ac">bootstrap.min.js</a>
+</li>
+<li>an()
+: <a class="el" href="jquery-1_810_82_8min_8js.html#ada4b4d9ce9b76d68aeaf886e5325561f">jquery-1.10.2.min.js</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
+<li>b()
+: <a class="el" href="bootstrap_8min_8js.html#a7c192e47b11481e4717b9f1e04eb4420">bootstrap.min.js</a>
+</li>
+<li>Bcolor()
+: <a class="el" href="save__jpeg_8c.html#ad3b0fba0e2c83f2ca06360708ad4ac20">save_jpeg.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>close()
+: <a class="el" href="bootstrap_8min_8js.html#ac581e13fc2b7b6ddfcf10b44940becde">bootstrap.min.js</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>decode_form()
+: <a class="el" href="ledctrl_8c.html#a43e28f82afc8ec8a54f6fa539f93e087">ledctrl.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>each()
+: <a class="el" href="jquery-1_810_82_8min_8js.html#a6f451301b91d40514a108ee16d72af50">jquery-1.10.2.min.js</a>
+</li>
+<li>echosample()
+: <a class="el" href="easyudpserver1_8c.html#a6b234dd146bb1f393e2b5cd6d948ede2">easyudpserver1.c</a>
+, <a class="el" href="jpgudpserver_8c.html#a6b234dd146bb1f393e2b5cd6d948ede2">jpgudpserver.c</a>
+</li>
+<li>extend()
+: <a class="el" href="jquery-1_810_82_8min_8js.html#a7f9e75a4d478335345ba16e6e33bc109">jquery-1.10.2.min.js</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>for()
+: <a class="el" href="jribbble_8js.html#ac23f6de6ec1b669a5b50796ef088acb0">jribbble.js</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>Gcolor()
+: <a class="el" href="save__jpeg_8c.html#aab7b0f202526d145f935678abdc820c1">save_jpeg.c</a>
+</li>
+<li>get_form()
+: <a class="el" href="ledctrl_8c.html#a738d4987e95138037b3d9a29a9d45684">ledctrl.c</a>
+</li>
+<li>gn()
+: <a class="el" href="jquery-1_810_82_8min_8js.html#a52b2392dd08654e3e724f72921390090">jquery-1.10.2.min.js</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
+<li>hasClass()
+: <a class="el" href="bootstrap_8min_8js.html#a8def0d8d5e720a12b6d5be36ad348855">bootstrap.min.js</a>
+</li>
+<li>html_error()
+: <a class="el" href="ledctrl_8c.html#aa3d6c73d189157c0921dbe710542b51c">ledctrl.c</a>
+</li>
+<li>html_print()
+: <a class="el" href="ledctrl_8c.html#a98aae55c6dc996ca8699abb62a550459">ledctrl.c</a>
+</li>
+<li>hyozi()
+: <a class="el" href="douga_8c.html#aaeb14f8939bdbd0db19120314faad4d5">douga.c</a>
+, <a class="el" href="douga_8h.html#aaeb14f8939bdbd0db19120314faad4d5">douga.h</a>
+, <a class="el" href="jpeg__cap__zikken_8c.html#aaeb14f8939bdbd0db19120314faad4d5">jpeg_cap_zikken.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>if()
+: <a class="el" href="bootstrap_8min_8js.html#a8ea4d766f574fc54dd393bcc78388062">bootstrap.min.js</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_j"></a>- j -</h3><ul>
+<li>jpeg_showing()
+: <a class="el" href="easyudpserver1_8c.html#a4d3f33afe6d414d0bf7ab49ee278ce38">easyudpserver1.c</a>
+</li>
+<li>jQuery()
+: <a class="el" href="site-ck_8js.html#a5c1c7770c4c44dde3dcba63aa2a48056">site-ck.js</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>led_out()
+: <a class="el" href="ledctrl_8c.html#a0b862f0dca8c59432af46c2cf1d0850c">ledctrl.c</a>
+</li>
+<li>led_status()
+: <a class="el" href="ledctrl_8c.html#ae19143c628a67e2f374fa9d5684998b1">ledctrl.c</a>
+</li>
+<li>ln()
+: <a class="el" href="jquery-1_810_82_8min_8js.html#a42661329b17b306f3a9acb09791baff6">jquery-1.10.2.min.js</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>main()
+: <a class="el" href="caputure_8c.html#a0ddf1224851353fc92bfbff6f499fa97">caputure.c</a>
+, <a class="el" href="cvstreaming_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">cvstreaming.cpp</a>
+, <a class="el" href="cvtest_8c.html#a0ddf1224851353fc92bfbff6f499fa97">cvtest.c</a>
+, <a class="el" href="cvtest_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">cvtest.cpp</a>
+, <a class="el" href="douga_8c.html#a0ddf1224851353fc92bfbff6f499fa97">douga.c</a>
+, <a class="el" href="douga__cap__kaihen1_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">douga_cap_kaihen1.c</a>
+, <a class="el" href="easyudpserver1_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">easyudpserver1.c</a>
+, <a class="el" href="htsample_8c.html#a840291bc02cba5474a4cb46a9b9566fe">htsample.c</a>
+, <a class="el" href="jpeg__cap__zikken_8c.html#a0ddf1224851353fc92bfbff6f499fa97">jpeg_cap_zikken.c</a>
+, <a class="el" href="jpegudpclient1_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">jpegudpclient1.c</a>
+, <a class="el" href="jpgudpserver_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">jpgudpserver.c</a>
+, <a class="el" href="ledctrl_8c.html#a0ddf1224851353fc92bfbff6f499fa97">ledctrl.c</a>
+, <a class="el" href="network___i_pchange_8c.html#a840291bc02cba5474a4cb46a9b9566fe">network_IPchange.c</a>
+, <a class="el" href="jpeg_8c.html#a840291bc02cba5474a4cb46a9b9566fe">jpeg.c</a>
+, <a class="el" href="save__jpeg_8c.html#a840291bc02cba5474a4cb46a9b9566fe">save_jpeg.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
+<li>nn()
+: <a class="el" href="jquery-1_810_82_8min_8js.html#a11655b827ec323fed5b6a764f93b9ece">jquery-1.10.2.min.js</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>on()
+: <a class="el" href="jquery-1_810_82_8min_8js.html#a9d5fa4fe98b38569490d55d1a97b0f72">jquery-1.10.2.min.js</a>
+</li>
+<li>opacity()
+: <a class="el" href="jquery-1_810_82_8min_8js.html#a328c19d9255bfd09a2f3cddecadca6ad">jquery-1.10.2.min.js</a>
+</li>
+<li>ore_connect()
+: <a class="el" href="jpegudpclient1_8c.html#a635586f43c5ade058ce950030997380c">jpegudpclient1.c</a>
+, <a class="el" href="douga__cap__kaihen1_8c.html#a635586f43c5ade058ce950030997380c">douga_cap_kaihen1.c</a>
+, <a class="el" href="jpeg__cap__zikken_8c.html#a635586f43c5ade058ce950030997380c">jpeg_cap_zikken.c</a>
+</li>
+<li>ore_listen()
+: <a class="el" href="easyudpserver1_8c.html#ae488f24d0b4f62881de16b8b4e39c63a">easyudpserver1.c</a>
+, <a class="el" href="jpgudpserver_8c.html#ae488f24d0b4f62881de16b8b4e39c63a">jpgudpserver.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>parse_form()
+: <a class="el" href="ledctrl_8c.html#ac7b6307dd31dc39dcf8364308ecd3895">ledctrl.c</a>
+, <a class="el" href="network___i_pchange_8c.html#ac7b6307dd31dc39dcf8364308ecd3895">network_IPchange.c</a>
+</li>
+<li>process_image()
+: <a class="el" href="douga_8c.html#a781de08a0dd09cc3682853cb92e315c7">douga.c</a>
+, <a class="el" href="douga_8h.html#a781de08a0dd09cc3682853cb92e315c7">douga.h</a>
+, <a class="el" href="jpeg__cap__zikken_8c.html#a781de08a0dd09cc3682853cb92e315c7">jpeg_cap_zikken.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>Rcolor()
+: <a class="el" href="save__jpeg_8c.html#a52df3435a02c8fcfbceb53cd097d1bd6">save_jpeg.c</a>
+</li>
+<li>ready()
+: <a class="el" href="site-ck_8js.html#a0671202d69b3545ff26875d6ca37aa5c">site-ck.js</a>
+</li>
+<li>rn()
+: <a class="el" href="jquery-1_810_82_8min_8js.html#a683a60c6ff4ff96a79f34e54fc8cc972">jquery-1.10.2.min.js</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>sendsample()
+: <a class="el" href="douga__cap__kaihen1_8c.html#a23848e7831d5ea0ed92d172f829cdd70">douga_cap_kaihen1.c</a>
+, <a class="el" href="jpeg__cap__zikken_8c.html#a23848e7831d5ea0ed92d172f829cdd70">jpeg_cap_zikken.c</a>
+, <a class="el" href="jpegudpclient1_8c.html#a23848e7831d5ea0ed92d172f829cdd70">jpegudpclient1.c</a>
+</li>
+<li>sn()
+: <a class="el" href="jquery-1_810_82_8min_8js.html#abccbe99209ac0b8dff41f1baddfc4d70">jquery-1.10.2.min.js</a>
+</li>
+<li>start()
+: <a class="el" href="douga_8h.html#a6a231587f1347728ae4c4e9bcb486812">douga.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>tn()
+: <a class="el" href="jquery-1_810_82_8min_8js.html#a9372ffea5788fa8dc44b8fc18aba3118">jquery-1.10.2.min.js</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
+<li>un()
+: <a class="el" href="jquery-1_810_82_8min_8js.html#a0fc2cca04563be83e112872ffd700452">jquery-1.10.2.min.js</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_x"></a>- x -</h3><ul>
+<li>x()
+: <a class="el" href="jquery-1_810_82_8min_8js.html#a5ce50d751c9664d05375c8f5080ed43e">jquery-1.10.2.min.js</a>
+</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">2015年02月18日(水) 19時43分45秒作成 - remoteMonitoringSystem / 構成: 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

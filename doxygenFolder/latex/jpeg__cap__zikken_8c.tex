@@ -1,0 +1,203 @@
+\hypertarget{jpeg__cap__zikken_8c}{}\section{C\+:/\+Standard\+Subject/jpeg\+\_\+cap\+\_\+zikken.c ファイル}
+\label{jpeg__cap__zikken_8c}\index{C\+:/\+Standard\+Subject/jpeg\+\_\+cap\+\_\+zikken.\+c@{C\+:/\+Standard\+Subject/jpeg\+\_\+cap\+\_\+zikken.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include $<$getopt.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$malloc.\+h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/time.\+h$>$}\\*
+{\ttfamily \#include $<$sys/mman.\+h$>$}\\*
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\\*
+{\ttfamily \#include $<$asm/types.\+h$>$}\\*
+{\ttfamily \#include $<$linux/videodev2.\+h$>$}\\*
+{\ttfamily \#include $<$linux/fb.\+h$>$}\\*
+{\ttfamily \#include $<$jpeglib.\+h$>$}\\*
+{\ttfamily \#include $<$netinet/ip.\+h$>$}\\*
+{\ttfamily \#include $<$signal.\+h$>$}\\*
+{\ttfamily \#include $<$netdb.\+h$>$}\\*
+jpeg\+\_\+cap\+\_\+zikken.\+c の依存先関係図\+:
+% FIG 0
+\subsection*{データ構造}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structbuffer}{buffer}
+\end{DoxyCompactItemize}
+\subsection*{マクロ定義}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{jpeg__cap__zikken_8c_ab0ba4dd6e237b96132c0a66be2fb3bc2}{C\+L\+E\+A\+R}(\hyperlink{jquery-1_810_82_8min_8js_a5ce50d751c9664d05375c8f5080ed43e}{x})~memset(\&(\hyperlink{jquery-1_810_82_8min_8js_a5ce50d751c9664d05375c8f5080ed43e}{x}), 0, sizeof (\hyperlink{jquery-1_810_82_8min_8js_a5ce50d751c9664d05375c8f5080ed43e}{x}))
+\item 
+\#define \hyperlink{jpeg__cap__zikken_8c_a6a5a49798a96db987404c8aa3b804fe3}{I\+M\+G\+\_\+\+W\+I\+D\+T\+H}~320
+\item 
+\#define \hyperlink{jpeg__cap__zikken_8c_a509566621a0b52524e800f69546c94be}{I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T}~240
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{jpeg__cap__zikken_8c_a781de08a0dd09cc3682853cb92e315c7}{process\+\_\+image} (char $\ast$p)
+\item 
+void \hyperlink{jpeg__cap__zikken_8c_aaeb14f8939bdbd0db19120314faad4d5}{hyozi} (void)
+\item 
+int \hyperlink{jpeg__cap__zikken_8c_a23848e7831d5ea0ed92d172f829cdd70}{sendsample} (int sd)
+\begin{DoxyCompactList}\small\item\em メインロジック部分 \end{DoxyCompactList}\item 
+int \hyperlink{jpeg__cap__zikken_8c_a635586f43c5ade058ce950030997380c}{ore\+\_\+connect} (char $\ast$host, int port)
+\item 
+int \hyperlink{jpeg__cap__zikken_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{変数}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{jpeg__cap__zikken_8c_a08fdb706084f1467a7caa92f600ddf5a}{deal}
+\item 
+struct \hyperlink{structbuffer}{buffer} $\ast$ \hyperlink{jpeg__cap__zikken_8c_a3bdcdddaf116b83e1e4ee5f9f7d66da0}{buffers} = N\+U\+L\+L
+\end{DoxyCompactItemize}
+
+
+\subsection{マクロ定義詳解}
+\hypertarget{jpeg__cap__zikken_8c_ab0ba4dd6e237b96132c0a66be2fb3bc2}{}\index{jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}!C\+L\+E\+A\+R@{C\+L\+E\+A\+R}}
+\index{C\+L\+E\+A\+R@{C\+L\+E\+A\+R}!jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}}
+\subsubsection[{C\+L\+E\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+E\+A\+R(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~memset(\&({\bf x}), 0, sizeof ({\bf x}))}\label{jpeg__cap__zikken_8c_ab0ba4dd6e237b96132c0a66be2fb3bc2}
+
+
+ jpeg\+\_\+cap\+\_\+zikken.\+c の 31 行目に定義があります。
+
+\hypertarget{jpeg__cap__zikken_8c_a509566621a0b52524e800f69546c94be}{}\index{jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}!I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T@{I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T}}
+\index{I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T@{I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T}!jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}}
+\subsubsection[{I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T~240}\label{jpeg__cap__zikken_8c_a509566621a0b52524e800f69546c94be}
+
+
+ jpeg\+\_\+cap\+\_\+zikken.\+c の 34 行目に定義があります。
+
+\hypertarget{jpeg__cap__zikken_8c_a6a5a49798a96db987404c8aa3b804fe3}{}\index{jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}!I\+M\+G\+\_\+\+W\+I\+D\+T\+H@{I\+M\+G\+\_\+\+W\+I\+D\+T\+H}}
+\index{I\+M\+G\+\_\+\+W\+I\+D\+T\+H@{I\+M\+G\+\_\+\+W\+I\+D\+T\+H}!jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}}
+\subsubsection[{I\+M\+G\+\_\+\+W\+I\+D\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+M\+G\+\_\+\+W\+I\+D\+T\+H~320}\label{jpeg__cap__zikken_8c_a6a5a49798a96db987404c8aa3b804fe3}
+
+
+ jpeg\+\_\+cap\+\_\+zikken.\+c の 33 行目に定義があります。
+
+
+
+\subsection{関数詳解}
+\hypertarget{jpeg__cap__zikken_8c_aaeb14f8939bdbd0db19120314faad4d5}{}\index{jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}!hyozi@{hyozi}}
+\index{hyozi@{hyozi}!jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}}
+\subsubsection[{hyozi}]{\setlength{\rightskip}{0pt plus 5cm}void hyozi (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{jpeg__cap__zikken_8c_aaeb14f8939bdbd0db19120314faad4d5}
+
+
+ jpeg\+\_\+cap\+\_\+zikken.\+c の 370 行目に定義があります。
+
+\hypertarget{jpeg__cap__zikken_8c_a0ddf1224851353fc92bfbff6f499fa97}{}\index{jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}!main@{main}}
+\index{main@{main}!jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{jpeg__cap__zikken_8c_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+ jpeg\+\_\+cap\+\_\+zikken.\+c の 221 行目に定義があります。
+
+
+
+呼び出し関係図\+:
+% FIG 1
+
+
+\hypertarget{jpeg__cap__zikken_8c_a635586f43c5ade058ce950030997380c}{}\index{jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}!ore\+\_\+connect@{ore\+\_\+connect}}
+\index{ore\+\_\+connect@{ore\+\_\+connect}!jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}}
+\subsubsection[{ore\+\_\+connect}]{\setlength{\rightskip}{0pt plus 5cm}int ore\+\_\+connect (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{host, }
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)}\label{jpeg__cap__zikken_8c_a635586f43c5ade058ce950030997380c}
+
+
+ jpeg\+\_\+cap\+\_\+zikken.\+c の 450 行目に定義があります。
+
+
+
+被呼び出し関係図\+:
+% FIG 2
+
+
+\hypertarget{jpeg__cap__zikken_8c_a781de08a0dd09cc3682853cb92e315c7}{}\index{jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}!process\+\_\+image@{process\+\_\+image}}
+\index{process\+\_\+image@{process\+\_\+image}!jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}}
+\subsubsection[{process\+\_\+image}]{\setlength{\rightskip}{0pt plus 5cm}void process\+\_\+image (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{p}
+\end{DoxyParamCaption}
+)}\label{jpeg__cap__zikken_8c_a781de08a0dd09cc3682853cb92e315c7}
+
+
+ jpeg\+\_\+cap\+\_\+zikken.\+c の 267 行目に定義があります。
+
+\hypertarget{jpeg__cap__zikken_8c_a23848e7831d5ea0ed92d172f829cdd70}{}\index{jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}!sendsample@{sendsample}}
+\index{sendsample@{sendsample}!jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}}
+\subsubsection[{sendsample}]{\setlength{\rightskip}{0pt plus 5cm}int sendsample (
+\begin{DoxyParamCaption}
+\item[{int}]{sd}
+\end{DoxyParamCaption}
+)}\label{jpeg__cap__zikken_8c_a23848e7831d5ea0ed92d172f829cdd70}
+
+
+メインロジック部分 
+
+20文字の文字列を送信し、受信した文字列を出力する 
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em sd} & ソケット \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+接続を維持するなら1を返す。正常に切断されたら0を、エラーなら-\/1を返す。 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{戻り値}
+{\em 1} & 接続を維持 \\
+\hline
+{\em 0} & 正常に切断検知 \\
+\hline
+{\em -\/1} & エラー \\
+\hline
+\end{DoxyRetVals}
+
+
+ jpeg\+\_\+cap\+\_\+zikken.\+c の 503 行目に定義があります。
+
+
+
+被呼び出し関係図\+:
+% FIG 3
+
+
+
+
+\subsection{変数詳解}
+\hypertarget{jpeg__cap__zikken_8c_a3bdcdddaf116b83e1e4ee5f9f7d66da0}{}\index{jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}!buffers@{buffers}}
+\index{buffers@{buffers}!jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}}
+\subsubsection[{buffers}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf buffer}$\ast$ buffers = N\+U\+L\+L}\label{jpeg__cap__zikken_8c_a3bdcdddaf116b83e1e4ee5f9f7d66da0}
+
+
+ jpeg\+\_\+cap\+\_\+zikken.\+c の 49 行目に定義があります。
+
+\hypertarget{jpeg__cap__zikken_8c_a08fdb706084f1467a7caa92f600ddf5a}{}\index{jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}!deal@{deal}}
+\index{deal@{deal}!jpeg\+\_\+cap\+\_\+zikken.\+c@{jpeg\+\_\+cap\+\_\+zikken.\+c}}
+\subsubsection[{deal}]{\setlength{\rightskip}{0pt plus 5cm}int deal}\label{jpeg__cap__zikken_8c_a08fdb706084f1467a7caa92f600ddf5a}
+
+
+ jpeg\+\_\+cap\+\_\+zikken.\+c の 36 行目に定義があります。
+

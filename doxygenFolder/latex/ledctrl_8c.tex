@@ -1,0 +1,226 @@
+\hypertarget{ledctrl_8c}{}\section{C\+:/\+Standard\+Subject/ledctrl.c ファイル}
+\label{ledctrl_8c}\index{C\+:/\+Standard\+Subject/ledctrl.\+c@{C\+:/\+Standard\+Subject/ledctrl.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$limits.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+ledctrl.\+c の依存先関係図\+:
+% FIG 0
+\subsection*{マクロ定義}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ledctrl_8c_aeb04f2e0012cb07d68538599161c9693}{C\+L\+A\+S\+S}~\char`\"{}/sys/class/leds\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{列挙型}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{ledctrl_8c_a1f3289eeddfbcff1515a3786dc0518fa}{L\+E\+D\+\_\+\+C\+O\+L\+O\+R} \{ \hyperlink{ledctrl_8c_a1f3289eeddfbcff1515a3786dc0518faaf80f9a890089d211842d59625e561f88}{R\+E\+D}, 
+\hyperlink{ledctrl_8c_a1f3289eeddfbcff1515a3786dc0518faaa60bd322f93178d68184e30e162571ca}{G\+R\+E\+E\+N}, 
+\hyperlink{ledctrl_8c_a1f3289eeddfbcff1515a3786dc0518faae735a848bf82163a19236ead1c3ef2d2}{Y\+E\+L\+L\+O\+W}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ledctrl_8c_a98aae55c6dc996ca8699abb62a550459}{html\+\_\+print} (int led\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{ledctrl_8c_ae19143c628a67e2f374fa9d5684998b1}{led\+\_\+status} (int led\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{ledctrl_8c_a0b862f0dca8c59432af46c2cf1d0850c}{led\+\_\+out} (int led\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{ledctrl_8c_aa3d6c73d189157c0921dbe710542b51c}{html\+\_\+error} (char $\ast$str)
+\item 
+int \hyperlink{ledctrl_8c_ac7b6307dd31dc39dcf8364308ecd3895}{parse\+\_\+form} (char $\ast$s\+\_\+in, long maxl, char $\ast$name\mbox{[}$\,$\mbox{]}, char $\ast$value\mbox{[}$\,$\mbox{]}, int $\ast$p\+\_\+nfld)
+\item 
+int \hyperlink{ledctrl_8c_a43e28f82afc8ec8a54f6fa539f93e087}{decode\+\_\+form} (char $\ast$\hyperlink{jribbble_8js_ad9a7d92cb87932d25187fdec3ba1b621}{s}, long len)
+\item 
+int \hyperlink{ledctrl_8c_a738d4987e95138037b3d9a29a9d45684}{get\+\_\+form} (int led\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{ledctrl_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{マクロ定義詳解}
+\hypertarget{ledctrl_8c_aeb04f2e0012cb07d68538599161c9693}{}\index{ledctrl.\+c@{ledctrl.\+c}!C\+L\+A\+S\+S@{C\+L\+A\+S\+S}}
+\index{C\+L\+A\+S\+S@{C\+L\+A\+S\+S}!ledctrl.\+c@{ledctrl.\+c}}
+\subsubsection[{C\+L\+A\+S\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+A\+S\+S~\char`\"{}/sys/class/leds\char`\"{}}\label{ledctrl_8c_aeb04f2e0012cb07d68538599161c9693}
+
+
+ ledctrl.\+c の 10 行目に定義があります。
+
+
+
+\subsection{列挙型詳解}
+\hypertarget{ledctrl_8c_a1f3289eeddfbcff1515a3786dc0518fa}{}\index{ledctrl.\+c@{ledctrl.\+c}!L\+E\+D\+\_\+\+C\+O\+L\+O\+R@{L\+E\+D\+\_\+\+C\+O\+L\+O\+R}}
+\index{L\+E\+D\+\_\+\+C\+O\+L\+O\+R@{L\+E\+D\+\_\+\+C\+O\+L\+O\+R}!ledctrl.\+c@{ledctrl.\+c}}
+\subsubsection[{L\+E\+D\+\_\+\+C\+O\+L\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf L\+E\+D\+\_\+\+C\+O\+L\+O\+R}}\label{ledctrl_8c_a1f3289eeddfbcff1515a3786dc0518fa}
+\begin{Desc}
+\item[列挙値]\par
+\begin{description}
+\index{R\+E\+D@{R\+E\+D}!ledctrl.\+c@{ledctrl.\+c}}\index{ledctrl.\+c@{ledctrl.\+c}!R\+E\+D@{R\+E\+D}}\item[{\em 
+\hypertarget{ledctrl_8c_a1f3289eeddfbcff1515a3786dc0518faaf80f9a890089d211842d59625e561f88}{}R\+E\+D\label{ledctrl_8c_a1f3289eeddfbcff1515a3786dc0518faaf80f9a890089d211842d59625e561f88}
+}]\index{G\+R\+E\+E\+N@{G\+R\+E\+E\+N}!ledctrl.\+c@{ledctrl.\+c}}\index{ledctrl.\+c@{ledctrl.\+c}!G\+R\+E\+E\+N@{G\+R\+E\+E\+N}}\item[{\em 
+\hypertarget{ledctrl_8c_a1f3289eeddfbcff1515a3786dc0518faaa60bd322f93178d68184e30e162571ca}{}G\+R\+E\+E\+N\label{ledctrl_8c_a1f3289eeddfbcff1515a3786dc0518faaa60bd322f93178d68184e30e162571ca}
+}]\index{Y\+E\+L\+L\+O\+W@{Y\+E\+L\+L\+O\+W}!ledctrl.\+c@{ledctrl.\+c}}\index{ledctrl.\+c@{ledctrl.\+c}!Y\+E\+L\+L\+O\+W@{Y\+E\+L\+L\+O\+W}}\item[{\em 
+\hypertarget{ledctrl_8c_a1f3289eeddfbcff1515a3786dc0518faae735a848bf82163a19236ead1c3ef2d2}{}Y\+E\+L\+L\+O\+W\label{ledctrl_8c_a1f3289eeddfbcff1515a3786dc0518faae735a848bf82163a19236ead1c3ef2d2}
+}]\end{description}
+\end{Desc}
+
+
+ ledctrl.\+c の 20 行目に定義があります。
+
+
+
+\subsection{関数詳解}
+\hypertarget{ledctrl_8c_a43e28f82afc8ec8a54f6fa539f93e087}{}\index{ledctrl.\+c@{ledctrl.\+c}!decode\+\_\+form@{decode\+\_\+form}}
+\index{decode\+\_\+form@{decode\+\_\+form}!ledctrl.\+c@{ledctrl.\+c}}
+\subsubsection[{decode\+\_\+form}]{\setlength{\rightskip}{0pt plus 5cm}int decode\+\_\+form (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{s, }
+\item[{long}]{len}
+\end{DoxyParamCaption}
+)}\label{ledctrl_8c_a43e28f82afc8ec8a54f6fa539f93e087}
+
+
+ ledctrl.\+c の 197 行目に定義があります。
+
+
+
+被呼び出し関係図\+:
+% FIG 1
+
+
+\hypertarget{ledctrl_8c_a738d4987e95138037b3d9a29a9d45684}{}\index{ledctrl.\+c@{ledctrl.\+c}!get\+\_\+form@{get\+\_\+form}}
+\index{get\+\_\+form@{get\+\_\+form}!ledctrl.\+c@{ledctrl.\+c}}
+\subsubsection[{get\+\_\+form}]{\setlength{\rightskip}{0pt plus 5cm}int get\+\_\+form (
+\begin{DoxyParamCaption}
+\item[{int}]{led\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{ledctrl_8c_a738d4987e95138037b3d9a29a9d45684}
+
+
+ ledctrl.\+c の 127 行目に定義があります。
+
+
+
+呼び出し関係図\+:
+% FIG 2
+
+
+
+
+被呼び出し関係図\+:
+% FIG 3
+
+
+\hypertarget{ledctrl_8c_aa3d6c73d189157c0921dbe710542b51c}{}\index{ledctrl.\+c@{ledctrl.\+c}!html\+\_\+error@{html\+\_\+error}}
+\index{html\+\_\+error@{html\+\_\+error}!ledctrl.\+c@{ledctrl.\+c}}
+\subsubsection[{html\+\_\+error}]{\setlength{\rightskip}{0pt plus 5cm}void html\+\_\+error (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{ledctrl_8c_aa3d6c73d189157c0921dbe710542b51c}
+
+
+ ledctrl.\+c の 118 行目に定義があります。
+
+
+
+被呼び出し関係図\+:
+% FIG 4
+
+
+\hypertarget{ledctrl_8c_a98aae55c6dc996ca8699abb62a550459}{}\index{ledctrl.\+c@{ledctrl.\+c}!html\+\_\+print@{html\+\_\+print}}
+\index{html\+\_\+print@{html\+\_\+print}!ledctrl.\+c@{ledctrl.\+c}}
+\subsubsection[{html\+\_\+print}]{\setlength{\rightskip}{0pt plus 5cm}void html\+\_\+print (
+\begin{DoxyParamCaption}
+\item[{int}]{led\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{ledctrl_8c_a98aae55c6dc996ca8699abb62a550459}
+
+
+ ledctrl.\+c の 103 行目に定義があります。
+
+
+
+被呼び出し関係図\+:
+% FIG 5
+
+
+\hypertarget{ledctrl_8c_a0b862f0dca8c59432af46c2cf1d0850c}{}\index{ledctrl.\+c@{ledctrl.\+c}!led\+\_\+out@{led\+\_\+out}}
+\index{led\+\_\+out@{led\+\_\+out}!ledctrl.\+c@{ledctrl.\+c}}
+\subsubsection[{led\+\_\+out}]{\setlength{\rightskip}{0pt plus 5cm}int led\+\_\+out (
+\begin{DoxyParamCaption}
+\item[{int}]{led\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{ledctrl_8c_a0b862f0dca8c59432af46c2cf1d0850c}
+
+
+ ledctrl.\+c の 47 行目に定義があります。
+
+
+
+被呼び出し関係図\+:
+% FIG 6
+
+
+\hypertarget{ledctrl_8c_ae19143c628a67e2f374fa9d5684998b1}{}\index{ledctrl.\+c@{ledctrl.\+c}!led\+\_\+status@{led\+\_\+status}}
+\index{led\+\_\+status@{led\+\_\+status}!ledctrl.\+c@{ledctrl.\+c}}
+\subsubsection[{led\+\_\+status}]{\setlength{\rightskip}{0pt plus 5cm}int led\+\_\+status (
+\begin{DoxyParamCaption}
+\item[{int}]{led\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{ledctrl_8c_ae19143c628a67e2f374fa9d5684998b1}
+
+
+ ledctrl.\+c の 75 行目に定義があります。
+
+
+
+被呼び出し関係図\+:
+% FIG 7
+
+
+\hypertarget{ledctrl_8c_a0ddf1224851353fc92bfbff6f499fa97}{}\index{ledctrl.\+c@{ledctrl.\+c}!main@{main}}
+\index{main@{main}!ledctrl.\+c@{ledctrl.\+c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{ledctrl_8c_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+ ledctrl.\+c の 26 行目に定義があります。
+
+
+
+呼び出し関係図\+:
+% FIG 8
+
+
+\hypertarget{ledctrl_8c_ac7b6307dd31dc39dcf8364308ecd3895}{}\index{ledctrl.\+c@{ledctrl.\+c}!parse\+\_\+form@{parse\+\_\+form}}
+\index{parse\+\_\+form@{parse\+\_\+form}!ledctrl.\+c@{ledctrl.\+c}}
+\subsubsection[{parse\+\_\+form}]{\setlength{\rightskip}{0pt plus 5cm}int parse\+\_\+form (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{s\+\_\+in, }
+\item[{long}]{maxl, }
+\item[{char $\ast$}]{name\mbox{[}$\,$\mbox{]}, }
+\item[{char $\ast$}]{value\mbox{[}$\,$\mbox{]}, }
+\item[{int $\ast$}]{p\+\_\+nfld}
+\end{DoxyParamCaption}
+)}\label{ledctrl_8c_ac7b6307dd31dc39dcf8364308ecd3895}
+
+
+ ledctrl.\+c の 175 行目に定義があります。
+
+
+
+被呼び出し関係図\+:
+% FIG 9
+
+

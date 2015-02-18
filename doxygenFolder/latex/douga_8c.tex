@@ -1,0 +1,134 @@
+\hypertarget{douga_8c}{}\section{C\+:/\+Standard\+Subject/douga.c ファイル}
+\label{douga_8c}\index{C\+:/\+Standard\+Subject/douga.\+c@{C\+:/\+Standard\+Subject/douga.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include $<$getopt.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$malloc.\+h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/time.\+h$>$}\\*
+{\ttfamily \#include $<$sys/mman.\+h$>$}\\*
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\\*
+{\ttfamily \#include $<$asm/types.\+h$>$}\\*
+{\ttfamily \#include $<$linux/videodev2.\+h$>$}\\*
+{\ttfamily \#include $<$linux/fb.\+h$>$}\\*
+{\ttfamily \#include $<$jpeglib.\+h$>$}\\*
+douga.\+c の依存先関係図\+:
+% FIG 0
+\subsection*{データ構造}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structbuffer}{buffer}
+\end{DoxyCompactItemize}
+\subsection*{マクロ定義}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{douga_8c_ab0ba4dd6e237b96132c0a66be2fb3bc2}{C\+L\+E\+A\+R}(\hyperlink{jquery-1_810_82_8min_8js_a5ce50d751c9664d05375c8f5080ed43e}{x})~memset(\&(\hyperlink{jquery-1_810_82_8min_8js_a5ce50d751c9664d05375c8f5080ed43e}{x}), 0, sizeof (\hyperlink{jquery-1_810_82_8min_8js_a5ce50d751c9664d05375c8f5080ed43e}{x}))
+\item 
+\#define \hyperlink{douga_8c_a6a5a49798a96db987404c8aa3b804fe3}{I\+M\+G\+\_\+\+W\+I\+D\+T\+H}~320
+\item 
+\#define \hyperlink{douga_8c_a509566621a0b52524e800f69546c94be}{I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T}~240
+\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{douga_8c_a781de08a0dd09cc3682853cb92e315c7}{process\+\_\+image} (char $\ast$p)
+\item 
+void \hyperlink{douga_8c_aaeb14f8939bdbd0db19120314faad4d5}{hyozi} (void)
+\item 
+int \hyperlink{douga_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{変数}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{douga_8c_a08fdb706084f1467a7caa92f600ddf5a}{deal} =0
+\item 
+struct \hyperlink{structbuffer}{buffer} $\ast$ \hyperlink{douga_8c_a3bdcdddaf116b83e1e4ee5f9f7d66da0}{buffers} = N\+U\+L\+L
+\end{DoxyCompactItemize}
+
+
+\subsection{マクロ定義詳解}
+\hypertarget{douga_8c_ab0ba4dd6e237b96132c0a66be2fb3bc2}{}\index{douga.\+c@{douga.\+c}!C\+L\+E\+A\+R@{C\+L\+E\+A\+R}}
+\index{C\+L\+E\+A\+R@{C\+L\+E\+A\+R}!douga.\+c@{douga.\+c}}
+\subsubsection[{C\+L\+E\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+E\+A\+R(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~memset(\&({\bf x}), 0, sizeof ({\bf x}))}\label{douga_8c_ab0ba4dd6e237b96132c0a66be2fb3bc2}
+
+
+ douga.\+c の 25 行目に定義があります。
+
+\hypertarget{douga_8c_a509566621a0b52524e800f69546c94be}{}\index{douga.\+c@{douga.\+c}!I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T@{I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T}}
+\index{I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T@{I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T}!douga.\+c@{douga.\+c}}
+\subsubsection[{I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T~240}\label{douga_8c_a509566621a0b52524e800f69546c94be}
+
+
+ douga.\+c の 28 行目に定義があります。
+
+\hypertarget{douga_8c_a6a5a49798a96db987404c8aa3b804fe3}{}\index{douga.\+c@{douga.\+c}!I\+M\+G\+\_\+\+W\+I\+D\+T\+H@{I\+M\+G\+\_\+\+W\+I\+D\+T\+H}}
+\index{I\+M\+G\+\_\+\+W\+I\+D\+T\+H@{I\+M\+G\+\_\+\+W\+I\+D\+T\+H}!douga.\+c@{douga.\+c}}
+\subsubsection[{I\+M\+G\+\_\+\+W\+I\+D\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+M\+G\+\_\+\+W\+I\+D\+T\+H~320}\label{douga_8c_a6a5a49798a96db987404c8aa3b804fe3}
+
+
+ douga.\+c の 27 行目に定義があります。
+
+
+
+\subsection{関数詳解}
+\hypertarget{douga_8c_aaeb14f8939bdbd0db19120314faad4d5}{}\index{douga.\+c@{douga.\+c}!hyozi@{hyozi}}
+\index{hyozi@{hyozi}!douga.\+c@{douga.\+c}}
+\subsubsection[{hyozi}]{\setlength{\rightskip}{0pt plus 5cm}void hyozi (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{douga_8c_aaeb14f8939bdbd0db19120314faad4d5}
+
+
+ douga.\+c の 345 行目に定義があります。
+
+\hypertarget{douga_8c_a0ddf1224851353fc92bfbff6f499fa97}{}\index{douga.\+c@{douga.\+c}!main@{main}}
+\index{main@{main}!douga.\+c@{douga.\+c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\label{douga_8c_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+ douga.\+c の 215 行目に定義があります。
+
+\hypertarget{douga_8c_a781de08a0dd09cc3682853cb92e315c7}{}\index{douga.\+c@{douga.\+c}!process\+\_\+image@{process\+\_\+image}}
+\index{process\+\_\+image@{process\+\_\+image}!douga.\+c@{douga.\+c}}
+\subsubsection[{process\+\_\+image}]{\setlength{\rightskip}{0pt plus 5cm}void process\+\_\+image (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{p}
+\end{DoxyParamCaption}
+)}\label{douga_8c_a781de08a0dd09cc3682853cb92e315c7}
+
+
+ douga.\+c の 234 行目に定義があります。
+
+
+
+\subsection{変数詳解}
+\hypertarget{douga_8c_a3bdcdddaf116b83e1e4ee5f9f7d66da0}{}\index{douga.\+c@{douga.\+c}!buffers@{buffers}}
+\index{buffers@{buffers}!douga.\+c@{douga.\+c}}
+\subsubsection[{buffers}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf buffer}$\ast$ buffers = N\+U\+L\+L}\label{douga_8c_a3bdcdddaf116b83e1e4ee5f9f7d66da0}
+
+
+ douga.\+c の 41 行目に定義があります。
+
+\hypertarget{douga_8c_a08fdb706084f1467a7caa92f600ddf5a}{}\index{douga.\+c@{douga.\+c}!deal@{deal}}
+\index{deal@{deal}!douga.\+c@{douga.\+c}}
+\subsubsection[{deal}]{\setlength{\rightskip}{0pt plus 5cm}int deal =0}\label{douga_8c_a08fdb706084f1467a7caa92f600ddf5a}
+
+
+ douga.\+c の 30 行目に定義があります。
+

@@ -1,0 +1,130 @@
+\hypertarget{douga__cap__kaihen1_8c}{}\section{C\+:/\+Standard\+Subject/douga\+\_\+cap\+\_\+kaihen1.c ファイル}
+\label{douga__cap__kaihen1_8c}\index{C\+:/\+Standard\+Subject/douga\+\_\+cap\+\_\+kaihen1.\+c@{C\+:/\+Standard\+Subject/douga\+\_\+cap\+\_\+kaihen1.\+c}}
+
+
+もっとも簡単なクライアントプログラム  
+
+
+{\ttfamily \#include $<$netinet/ip.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$signal.\+h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}douga.\+h\char`\"{}}\\*
+douga\+\_\+cap\+\_\+kaihen1.\+c の依存先関係図\+:
+% FIG 0
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{douga__cap__kaihen1_8c_a635586f43c5ade058ce950030997380c}{ore\+\_\+connect} (char $\ast$host, int port)
+\begin{DoxyCompactList}\small\item\em 接続ソケット作成 \end{DoxyCompactList}\item 
+int \hyperlink{douga__cap__kaihen1_8c_a23848e7831d5ea0ed92d172f829cdd70}{sendsample} (int sd)
+\begin{DoxyCompactList}\small\item\em メインロジック部分 \end{DoxyCompactList}\item 
+int \hyperlink{douga__cap__kaihen1_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em メインルーチン \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+もっとも簡単なクライアントプログラム 
+
+基本的なクライアントプログラムの流れの説明のためのソース 
+
+\subsection{関数詳解}
+\hypertarget{douga__cap__kaihen1_8c_a3c04138a5bfe5d72780bb7e82a18e627}{}\index{douga\+\_\+cap\+\_\+kaihen1.\+c@{douga\+\_\+cap\+\_\+kaihen1.\+c}!main@{main}}
+\index{main@{main}!douga\+\_\+cap\+\_\+kaihen1.\+c@{douga\+\_\+cap\+\_\+kaihen1.\+c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\label{douga__cap__kaihen1_8c_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+メインルーチン 
+
+
+
+ douga\+\_\+cap\+\_\+kaihen1.\+c の 160 行目に定義があります。
+
+
+
+呼び出し関係図\+:
+% FIG 1
+
+
+\hypertarget{douga__cap__kaihen1_8c_a635586f43c5ade058ce950030997380c}{}\index{douga\+\_\+cap\+\_\+kaihen1.\+c@{douga\+\_\+cap\+\_\+kaihen1.\+c}!ore\+\_\+connect@{ore\+\_\+connect}}
+\index{ore\+\_\+connect@{ore\+\_\+connect}!douga\+\_\+cap\+\_\+kaihen1.\+c@{douga\+\_\+cap\+\_\+kaihen1.\+c}}
+\subsubsection[{ore\+\_\+connect}]{\setlength{\rightskip}{0pt plus 5cm}int ore\+\_\+connect (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{host, }
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)}\label{douga__cap__kaihen1_8c_a635586f43c5ade058ce950030997380c}
+
+
+接続ソケット作成 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em host} & ホスト名 \\
+\hline
+\mbox{\tt in}  & {\em port} & ポート番号 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{戻り値}
+{\em 0以上} & ソケット番号 \\
+\hline
+{\em -\/1} & エラー \\
+\hline
+\end{DoxyRetVals}
+
+
+ douga\+\_\+cap\+\_\+kaihen1.\+c の 35 行目に定義があります。
+
+
+
+被呼び出し関係図\+:
+% FIG 2
+
+
+\hypertarget{douga__cap__kaihen1_8c_a23848e7831d5ea0ed92d172f829cdd70}{}\index{douga\+\_\+cap\+\_\+kaihen1.\+c@{douga\+\_\+cap\+\_\+kaihen1.\+c}!sendsample@{sendsample}}
+\index{sendsample@{sendsample}!douga\+\_\+cap\+\_\+kaihen1.\+c@{douga\+\_\+cap\+\_\+kaihen1.\+c}}
+\subsubsection[{sendsample}]{\setlength{\rightskip}{0pt plus 5cm}int sendsample (
+\begin{DoxyParamCaption}
+\item[{int}]{sd}
+\end{DoxyParamCaption}
+)}\label{douga__cap__kaihen1_8c_a23848e7831d5ea0ed92d172f829cdd70}
+
+
+メインロジック部分 
+
+20文字の文字列を送信し、受信した文字列を出力する 
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em sd} & ソケット \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+接続を維持するなら1を返す。正常に切断されたら0を、エラーなら-\/1を返す。 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{戻り値}
+{\em 1} & 接続を維持 \\
+\hline
+{\em 0} & 正常に切断検知 \\
+\hline
+{\em -\/1} & エラー \\
+\hline
+\end{DoxyRetVals}
+
+
+ douga\+\_\+cap\+\_\+kaihen1.\+c の 80 行目に定義があります。
+
+
+
+被呼び出し関係図\+:
+% FIG 3
+
+

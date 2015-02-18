@@ -1,0 +1,79 @@
+\hypertarget{caputure__jpeg_8c}{}\section{C\+:/\+Standard\+Subject/caputure\+\_\+jpeg.c ファイル}
+\label{caputure__jpeg_8c}\index{C\+:/\+Standard\+Subject/caputure\+\_\+jpeg.\+c@{C\+:/\+Standard\+Subject/caputure\+\_\+jpeg.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include $<$getopt.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$errno.\+h$>$}\\*
+{\ttfamily \#include $<$malloc.\+h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\+h$>$}\\*
+{\ttfamily \#include $<$sys/types.\+h$>$}\\*
+{\ttfamily \#include $<$sys/time.\+h$>$}\\*
+{\ttfamily \#include $<$sys/mman.\+h$>$}\\*
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\\*
+{\ttfamily \#include $<$asm/types.\+h$>$}\\*
+{\ttfamily \#include $<$linux/videodev2.\+h$>$}\\*
+caputure\+\_\+jpeg.\+c の依存先関係図\+:
+% FIG 0
+被依存関係図\+:
+% FIG 1
+\subsection*{データ構造}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structbuffer}{buffer}
+\end{DoxyCompactItemize}
+\subsection*{マクロ定義}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{caputure__jpeg_8c_ab0ba4dd6e237b96132c0a66be2fb3bc2}{C\+L\+E\+A\+R}(\hyperlink{jquery-1_810_82_8min_8js_a5ce50d751c9664d05375c8f5080ed43e}{x})~memset(\&(\hyperlink{jquery-1_810_82_8min_8js_a5ce50d751c9664d05375c8f5080ed43e}{x}), 0, sizeof (\hyperlink{jquery-1_810_82_8min_8js_a5ce50d751c9664d05375c8f5080ed43e}{x}))
+\item 
+\#define \hyperlink{caputure__jpeg_8c_a6a5a49798a96db987404c8aa3b804fe3}{I\+M\+G\+\_\+\+W\+I\+D\+T\+H}~320
+\item 
+\#define \hyperlink{caputure__jpeg_8c_a509566621a0b52524e800f69546c94be}{I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T}~240
+\end{DoxyCompactItemize}
+\subsection*{変数}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structbuffer}{buffer} $\ast$ \hyperlink{caputure__jpeg_8c_a3bdcdddaf116b83e1e4ee5f9f7d66da0}{buffers} = N\+U\+L\+L
+\end{DoxyCompactItemize}
+
+
+\subsection{マクロ定義詳解}
+\hypertarget{caputure__jpeg_8c_ab0ba4dd6e237b96132c0a66be2fb3bc2}{}\index{caputure\+\_\+jpeg.\+c@{caputure\+\_\+jpeg.\+c}!C\+L\+E\+A\+R@{C\+L\+E\+A\+R}}
+\index{C\+L\+E\+A\+R@{C\+L\+E\+A\+R}!caputure\+\_\+jpeg.\+c@{caputure\+\_\+jpeg.\+c}}
+\subsubsection[{C\+L\+E\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+E\+A\+R(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~memset(\&({\bf x}), 0, sizeof ({\bf x}))}\label{caputure__jpeg_8c_ab0ba4dd6e237b96132c0a66be2fb3bc2}
+
+
+ caputure\+\_\+jpeg.\+c の 23 行目に定義があります。
+
+\hypertarget{caputure__jpeg_8c_a509566621a0b52524e800f69546c94be}{}\index{caputure\+\_\+jpeg.\+c@{caputure\+\_\+jpeg.\+c}!I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T@{I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T}}
+\index{I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T@{I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T}!caputure\+\_\+jpeg.\+c@{caputure\+\_\+jpeg.\+c}}
+\subsubsection[{I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+M\+G\+\_\+\+H\+E\+I\+G\+H\+T~240}\label{caputure__jpeg_8c_a509566621a0b52524e800f69546c94be}
+
+
+ caputure\+\_\+jpeg.\+c の 26 行目に定義があります。
+
+\hypertarget{caputure__jpeg_8c_a6a5a49798a96db987404c8aa3b804fe3}{}\index{caputure\+\_\+jpeg.\+c@{caputure\+\_\+jpeg.\+c}!I\+M\+G\+\_\+\+W\+I\+D\+T\+H@{I\+M\+G\+\_\+\+W\+I\+D\+T\+H}}
+\index{I\+M\+G\+\_\+\+W\+I\+D\+T\+H@{I\+M\+G\+\_\+\+W\+I\+D\+T\+H}!caputure\+\_\+jpeg.\+c@{caputure\+\_\+jpeg.\+c}}
+\subsubsection[{I\+M\+G\+\_\+\+W\+I\+D\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+M\+G\+\_\+\+W\+I\+D\+T\+H~320}\label{caputure__jpeg_8c_a6a5a49798a96db987404c8aa3b804fe3}
+
+
+ caputure\+\_\+jpeg.\+c の 25 行目に定義があります。
+
+
+
+\subsection{変数詳解}
+\hypertarget{caputure__jpeg_8c_a3bdcdddaf116b83e1e4ee5f9f7d66da0}{}\index{caputure\+\_\+jpeg.\+c@{caputure\+\_\+jpeg.\+c}!buffers@{buffers}}
+\index{buffers@{buffers}!caputure\+\_\+jpeg.\+c@{caputure\+\_\+jpeg.\+c}}
+\subsubsection[{buffers}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf buffer}$\ast$ buffers = N\+U\+L\+L}\label{caputure__jpeg_8c_a3bdcdddaf116b83e1e4ee5f9f7d66da0}
+
+
+ caputure\+\_\+jpeg.\+c の 35 行目に定義があります。
+

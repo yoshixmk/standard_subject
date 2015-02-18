@@ -1,0 +1,165 @@
+\hypertarget{easyudpserver1_8c}{}\section{C\+:/\+Standard\+Subject/easyudpserver1.c ファイル}
+\label{easyudpserver1_8c}\index{C\+:/\+Standard\+Subject/easyudpserver1.\+c@{C\+:/\+Standard\+Subject/easyudpserver1.\+c}}
+
+
+U\+D\+Pサーバプログラム  
+
+
+{\ttfamily \#include $<$netinet/ip.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$signal.\+h$>$}\\*
+{\ttfamily \#include $<$netdb.\+h$>$}\\*
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\\*
+{\ttfamily \#include $<$sys/mman.\+h$>$}\\*
+{\ttfamily \#include $<$linux/fb.\+h$>$}\\*
+{\ttfamily \#include $<$fcntl.\+h$>$}\\*
+{\ttfamily \#include $<$jpeglib.\+h$>$}\\*
+easyudpserver1.\+c の依存先関係図\+:
+% FIG 0
+\subsection*{マクロ定義}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{easyudpserver1_8c_a6a6a184fc039ef0296a7009f60722011}{M\+Y\+P\+O\+R\+T}~50000
+\begin{DoxyCompactList}\small\item\em 待ち受けポート番号 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{関数}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{easyudpserver1_8c_ae488f24d0b4f62881de16b8b4e39c63a}{ore\+\_\+listen} (int port)
+\begin{DoxyCompactList}\small\item\em 待ち受けソケット作成 \end{DoxyCompactList}\item 
+void \hyperlink{easyudpserver1_8c_a6b234dd146bb1f393e2b5cd6d948ede2}{echosample} (int sd)
+\begin{DoxyCompactList}\small\item\em メインロジック部分 \end{DoxyCompactList}\item 
+void \hyperlink{easyudpserver1_8c_a4d3f33afe6d414d0bf7ab49ee278ce38}{jpeg\+\_\+showing} (void)
+\item 
+int \hyperlink{easyudpserver1_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em メインルーチン \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{詳解}
+U\+D\+Pサーバプログラム 
+
+基本的な\+U\+D\+Pサーバプログラムの流れの説明のためのソース
+
+・\+I\+Pv6に対応 
+
+\subsection{マクロ定義詳解}
+\hypertarget{easyudpserver1_8c_a6a6a184fc039ef0296a7009f60722011}{}\index{easyudpserver1.\+c@{easyudpserver1.\+c}!M\+Y\+P\+O\+R\+T@{M\+Y\+P\+O\+R\+T}}
+\index{M\+Y\+P\+O\+R\+T@{M\+Y\+P\+O\+R\+T}!easyudpserver1.\+c@{easyudpserver1.\+c}}
+\subsubsection[{M\+Y\+P\+O\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+Y\+P\+O\+R\+T~50000}\label{easyudpserver1_8c_a6a6a184fc039ef0296a7009f60722011}
+
+
+待ち受けポート番号 
+
+
+
+ easyudpserver1.\+c の 35 行目に定義があります。
+
+
+
+\subsection{関数詳解}
+\hypertarget{easyudpserver1_8c_a6b234dd146bb1f393e2b5cd6d948ede2}{}\index{easyudpserver1.\+c@{easyudpserver1.\+c}!echosample@{echosample}}
+\index{echosample@{echosample}!easyudpserver1.\+c@{easyudpserver1.\+c}}
+\subsubsection[{echosample}]{\setlength{\rightskip}{0pt plus 5cm}void echosample (
+\begin{DoxyParamCaption}
+\item[{int}]{sd}
+\end{DoxyParamCaption}
+)}\label{easyudpserver1_8c_a6b234dd146bb1f393e2b5cd6d948ede2}
+
+
+メインロジック部分 
+
+とりあえず、入力された文字をそのままエコーする感じで 
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em sd} & ソケット \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+接続を維持するなら1を返す。正常に切断されたら0を、エラーなら-\/1を返す。 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{戻り値}
+{\em 1} & 接続を維持 \\
+\hline
+{\em 0} & 正常に切断検知 \\
+\hline
+{\em -\/1} & エラー \\
+\hline
+\end{DoxyRetVals}
+
+
+ easyudpserver1.\+c の 107 行目に定義があります。
+
+
+
+被呼び出し関係図\+:
+% FIG 1
+
+
+\hypertarget{easyudpserver1_8c_a4d3f33afe6d414d0bf7ab49ee278ce38}{}\index{easyudpserver1.\+c@{easyudpserver1.\+c}!jpeg\+\_\+showing@{jpeg\+\_\+showing}}
+\index{jpeg\+\_\+showing@{jpeg\+\_\+showing}!easyudpserver1.\+c@{easyudpserver1.\+c}}
+\subsubsection[{jpeg\+\_\+showing}]{\setlength{\rightskip}{0pt plus 5cm}void jpeg\+\_\+showing (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{easyudpserver1_8c_a4d3f33afe6d414d0bf7ab49ee278ce38}
+
+
+ easyudpserver1.\+c の 147 行目に定義があります。
+
+\hypertarget{easyudpserver1_8c_a3c04138a5bfe5d72780bb7e82a18e627}{}\index{easyudpserver1.\+c@{easyudpserver1.\+c}!main@{main}}
+\index{main@{main}!easyudpserver1.\+c@{easyudpserver1.\+c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\label{easyudpserver1_8c_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+メインルーチン 
+
+
+
+ easyudpserver1.\+c の 230 行目に定義があります。
+
+
+
+呼び出し関係図\+:
+% FIG 2
+
+
+\hypertarget{easyudpserver1_8c_ae488f24d0b4f62881de16b8b4e39c63a}{}\index{easyudpserver1.\+c@{easyudpserver1.\+c}!ore\+\_\+listen@{ore\+\_\+listen}}
+\index{ore\+\_\+listen@{ore\+\_\+listen}!easyudpserver1.\+c@{easyudpserver1.\+c}}
+\subsubsection[{ore\+\_\+listen}]{\setlength{\rightskip}{0pt plus 5cm}int ore\+\_\+listen (
+\begin{DoxyParamCaption}
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)}\label{easyudpserver1_8c_ae488f24d0b4f62881de16b8b4e39c63a}
+
+
+待ち受けソケット作成 
+
+
+\begin{DoxyParams}[1]{引数}
+\mbox{\tt in}  & {\em port} & ポート番号 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{戻り値}
+{\em 0以上} & 待ち受けソケット番号 \\
+\hline
+{\em -\/1} & エラー \\
+\hline
+\end{DoxyRetVals}
+
+
+ easyudpserver1.\+c の 47 行目に定義があります。
+
+
+
+被呼び出し関係図\+:
+% FIG 3
+
+
