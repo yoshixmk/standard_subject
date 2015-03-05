@@ -1353,7 +1353,7 @@ extern __nonreentrant void _delay(unsigned long);
 
 # 22
 unsigned int t0val;
-unsigned int pwmcnt = 0,cnt = 0;
+unsigned int pwmcnt = 0,cnt_1 = 0,cnt_2 = 0;
 unsigned int ad = 50,bs = 50,i;
 
 void main(void)
@@ -1361,6 +1361,7 @@ void main(void)
 ADCON0 = 0b00000000;
 ADCON1 = 0b00010110;
 TRISA = 0x00;
+TRISC = 0x00;
 
 T1CON = 0b00000111;
 PIR1 = 0b00000001;
@@ -1402,16 +1403,24 @@ PORTAbits.RA1 = 0;
 pwmcnt++;
 if(pwmcnt > 1500){
 pwmcnt = 0;
-cnt++;
+cnt_1++;
+cnt_2++;
 }
-if(cnt>=100)
+if(cnt_1>=100)
 {
 if(bs == 50) bs = 170;
 else bs = 50;
-if(ad == 50) ad = 170;
-else ad = 50;
-cnt = 0;
+cnt_1 = 0;
 }
+if(cnt_2>=70)
+{
+if(ad == 60) ad = 140;
+else ad = 60;
+cnt_2 = 0;
+}
+PORTCbits.RC0 = 1;
+PORTCbits.RC1 = 0;
+PORTCbits.RC2 = 0;
 }
 }
 

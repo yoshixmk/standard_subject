@@ -6,6 +6,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ADCON1 `Vuc ~T0 @X0 0 e@159 ]
 "1281
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
+"1391
+[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
 "628
 [v _T1CON `Vuc ~T0 @X0 0 e@16 ]
 "517
@@ -28,6 +30,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S6 . . ]
 "173
 [v _PORTAbits `VS6 ~T0 @X0 0 e@5 ]
+[s S11 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S11 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+[u S10 `S11 1 ]
+[n S10 . . ]
+"285
+[v _PORTCbits `VS10 ~T0 @X0 0 e@7 ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic16f877.h: 47: extern volatile unsigned char INDF @ 0x000;
@@ -1004,11 +1012,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _pwmcnt
 -> -> 0 `i `ui
 ]
-[v _cnt `ui ~T0 @X0 1 e ]
-[i _cnt
+[v _cnt_1 `ui ~T0 @X0 1 e ]
+[i _cnt_1
 -> -> 0 `i `ui
 ]
-[; ;main_pwm.c: 23: unsigned int pwmcnt = 0,cnt = 0;
+[v _cnt_2 `ui ~T0 @X0 1 e ]
+[i _cnt_2
+-> -> 0 `i `ui
+]
+[; ;main_pwm.c: 23: unsigned int pwmcnt = 0,cnt_1 = 0,cnt_2 = 0;
 "24
 [v _ad `ui ~T0 @X0 1 e ]
 [i _ad
@@ -1037,173 +1049,201 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main_pwm.c: 30: TRISA = 0x00;
 "30
 [e = _TRISA -> -> 0 `i `uc ]
-[; ;main_pwm.c: 32: T1CON = 0b00000111;
-"32
-[e = _T1CON -> -> 7 `i `uc ]
-[; ;main_pwm.c: 33: PIR1 = 0b00000001;
+[; ;main_pwm.c: 31: TRISC = 0x00;
+"31
+[e = _TRISC -> -> 0 `i `uc ]
+[; ;main_pwm.c: 33: T1CON = 0b00000111;
 "33
-[e = _PIR1 -> -> 1 `i `uc ]
-[; ;main_pwm.c: 34: PIE1 = 0b00000001;
+[e = _T1CON -> -> 7 `i `uc ]
+[; ;main_pwm.c: 34: PIR1 = 0b00000001;
 "34
-[e = _PIE1 -> -> 1 `i `uc ]
-[; ;main_pwm.c: 35: INTCON = 0b11000000;
+[e = _PIR1 -> -> 1 `i `uc ]
+[; ;main_pwm.c: 35: PIE1 = 0b00000001;
 "35
+[e = _PIE1 -> -> 1 `i `uc ]
+[; ;main_pwm.c: 36: INTCON = 0b11000000;
+"36
 [e = _INTCON -> -> 192 `i `uc ]
-[; ;main_pwm.c: 39: t0val = 65411;
-"39
-[e = _t0val -> -> 65411 `l `ui ]
-[; ;main_pwm.c: 40: TMR1 = t0val;
+[; ;main_pwm.c: 40: t0val = 65411;
 "40
-[e = _TMR1 -> _t0val `us ]
-[; ;main_pwm.c: 41: while(1)
+[e = _t0val -> -> 65411 `l `ui ]
+[; ;main_pwm.c: 41: TMR1 = t0val;
 "41
-[e :U 93 ]
-[; ;main_pwm.c: 42: {
+[e = _TMR1 -> _t0val `us ]
+[; ;main_pwm.c: 42: while(1)
 "42
-{
-[; ;main_pwm.c: 43: bs = 100;
+[e :U 93 ]
+[; ;main_pwm.c: 43: {
 "43
-[e = _bs -> -> 100 `i `ui ]
-[; ;main_pwm.c: 44: ad = 100;
+{
+[; ;main_pwm.c: 44: bs = 100;
 "44
-[e = _ad -> -> 100 `i `ui ]
-[; ;main_pwm.c: 45: _delay((unsigned long)((1000)*(20000000/4000.0)));
+[e = _bs -> -> 100 `i `ui ]
+[; ;main_pwm.c: 45: ad = 100;
 "45
+[e = _ad -> -> 100 `i `ui ]
+[; ;main_pwm.c: 46: _delay((unsigned long)((1000)*(20000000/4000.0)));
+"46
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"47
+"48
 }
 [e :U 92 ]
-"41
+"42
 [e $U 93  ]
 [e :U 94 ]
-[; ;main_pwm.c: 47: }
 [; ;main_pwm.c: 48: }
-"48
+[; ;main_pwm.c: 49: }
+"49
 [e :UE 91 ]
 }
-[v F1028 `(v ~T0 @X0 1 tf ]
-"49
-[v _isr `IF1028 ~T0 @X0 1 e ]
+[v F1029 `(v ~T0 @X0 1 tf ]
 "50
+[v _isr `IF1029 ~T0 @X0 1 e ]
+"51
 {
-[; ;main_pwm.c: 49: void interrupt isr(void)
-[; ;main_pwm.c: 50: {
+[; ;main_pwm.c: 50: void interrupt isr(void)
+[; ;main_pwm.c: 51: {
 [e :U _isr ]
 [f ]
-[; ;main_pwm.c: 52: if(TMR1IF == 1)
-"52
-[e $ ! == -> _TMR1IF `i -> 1 `i 96  ]
-[; ;main_pwm.c: 53: {
+[; ;main_pwm.c: 53: if(TMR1IF == 1)
 "53
-{
-[; ;main_pwm.c: 54: TMR1IF = 0;
+[e $ ! == -> _TMR1IF `i -> 1 `i 96  ]
+[; ;main_pwm.c: 54: {
 "54
-[e = _TMR1IF -> -> 0 `i `b ]
-[; ;main_pwm.c: 55: TMR1 = t0val;
+{
+[; ;main_pwm.c: 55: TMR1IF = 0;
 "55
-[e = _TMR1 -> _t0val `us ]
-[; ;main_pwm.c: 56: PIR1 = 0b00000001;
+[e = _TMR1IF -> -> 0 `i `b ]
+[; ;main_pwm.c: 56: TMR1 = t0val;
 "56
-[e = _PIR1 -> -> 1 `i `uc ]
-[; ;main_pwm.c: 57: if(pwmcnt<bs){
+[e = _TMR1 -> _t0val `us ]
+[; ;main_pwm.c: 57: PIR1 = 0b00000001;
 "57
+[e = _PIR1 -> -> 1 `i `uc ]
+[; ;main_pwm.c: 58: if(pwmcnt<bs){
+"58
 [e $ ! < _pwmcnt _bs 97  ]
 {
-[; ;main_pwm.c: 58: PORTAbits.RA0 = 1;
-"58
-[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
+[; ;main_pwm.c: 59: PORTAbits.RA0 = 1;
 "59
-}
-[; ;main_pwm.c: 59: }
-[e $U 98  ]
+[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
 "60
-[e :U 97 ]
-[; ;main_pwm.c: 60: else{
-{
-[; ;main_pwm.c: 61: PORTAbits.RA0 = 0;
+}
+[; ;main_pwm.c: 60: }
+[e $U 98  ]
 "61
-[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
+[e :U 97 ]
+[; ;main_pwm.c: 61: else{
+{
+[; ;main_pwm.c: 62: PORTAbits.RA0 = 0;
 "62
+[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
+"63
 }
 [e :U 98 ]
-[; ;main_pwm.c: 62: }
-[; ;main_pwm.c: 63: if(pwmcnt<ad){
-"63
+[; ;main_pwm.c: 63: }
+[; ;main_pwm.c: 64: if(pwmcnt<ad){
+"64
 [e $ ! < _pwmcnt _ad 99  ]
 {
-[; ;main_pwm.c: 64: PORTAbits.RA1 = 1;
-"64
-[e = . . _PORTAbits 0 1 -> -> 1 `i `uc ]
+[; ;main_pwm.c: 65: PORTAbits.RA1 = 1;
 "65
-}
-[; ;main_pwm.c: 65: }
-[e $U 100  ]
+[e = . . _PORTAbits 0 1 -> -> 1 `i `uc ]
 "66
-[e :U 99 ]
-[; ;main_pwm.c: 66: else{
-{
-[; ;main_pwm.c: 67: PORTAbits.RA1 = 0;
+}
+[; ;main_pwm.c: 66: }
+[e $U 100  ]
 "67
-[e = . . _PORTAbits 0 1 -> -> 0 `i `uc ]
+[e :U 99 ]
+[; ;main_pwm.c: 67: else{
+{
+[; ;main_pwm.c: 68: PORTAbits.RA1 = 0;
 "68
+[e = . . _PORTAbits 0 1 -> -> 0 `i `uc ]
+"69
 }
 [e :U 100 ]
-[; ;main_pwm.c: 68: }
-[; ;main_pwm.c: 69: pwmcnt++;
-"69
-[e ++ _pwmcnt -> -> 1 `i `ui ]
-[; ;main_pwm.c: 70: if(pwmcnt > 1500){
+[; ;main_pwm.c: 69: }
+[; ;main_pwm.c: 70: pwmcnt++;
 "70
+[e ++ _pwmcnt -> -> 1 `i `ui ]
+[; ;main_pwm.c: 71: if(pwmcnt > 1500){
+"71
 [e $ ! > _pwmcnt -> -> 1500 `i `ui 101  ]
 {
-[; ;main_pwm.c: 71: pwmcnt = 0;
-"71
-[e = _pwmcnt -> -> 0 `i `ui ]
-[; ;main_pwm.c: 72: cnt++;
+[; ;main_pwm.c: 72: pwmcnt = 0;
 "72
-[e ++ _cnt -> -> 1 `i `ui ]
+[e = _pwmcnt -> -> 0 `i `ui ]
+[; ;main_pwm.c: 73: cnt_1++;
 "73
+[e ++ _cnt_1 -> -> 1 `i `ui ]
+[; ;main_pwm.c: 74: cnt_2++;
+"74
+[e ++ _cnt_2 -> -> 1 `i `ui ]
+"75
 }
 [e :U 101 ]
-[; ;main_pwm.c: 73: }
-[; ;main_pwm.c: 74: if(cnt>=100)
-"74
-[e $ ! >= _cnt -> -> 100 `i `ui 102  ]
-[; ;main_pwm.c: 75: {
-"75
-{
-[; ;main_pwm.c: 76: if(bs == 50) bs = 170;
+[; ;main_pwm.c: 75: }
+[; ;main_pwm.c: 76: if(cnt_1>=100)
 "76
+[e $ ! >= _cnt_1 -> -> 100 `i `ui 102  ]
+[; ;main_pwm.c: 77: {
+"77
+{
+[; ;main_pwm.c: 78: if(bs == 50) bs = 170;
+"78
 [e $ ! == _bs -> -> 50 `i `ui 103  ]
 [e = _bs -> -> 170 `i `ui ]
 [e $U 104  ]
-"77
+"79
 [e :U 103 ]
-[; ;main_pwm.c: 77: else bs = 50;
+[; ;main_pwm.c: 79: else bs = 50;
 [e = _bs -> -> 50 `i `ui ]
 [e :U 104 ]
-[; ;main_pwm.c: 78: if(ad == 50) ad = 170;
-"78
-[e $ ! == _ad -> -> 50 `i `ui 105  ]
-[e = _ad -> -> 170 `i `ui ]
-[e $U 106  ]
-"79
-[e :U 105 ]
-[; ;main_pwm.c: 79: else ad = 50;
-[e = _ad -> -> 50 `i `ui ]
-[e :U 106 ]
-[; ;main_pwm.c: 80: cnt = 0;
+[; ;main_pwm.c: 80: cnt_1 = 0;
 "80
-[e = _cnt -> -> 0 `i `ui ]
+[e = _cnt_1 -> -> 0 `i `ui ]
 "81
 }
 [e :U 102 ]
+[; ;main_pwm.c: 81: }
+[; ;main_pwm.c: 82: if(cnt_2>=70)
 "82
+[e $ ! >= _cnt_2 -> -> 70 `i `ui 105  ]
+[; ;main_pwm.c: 83: {
+"83
+{
+[; ;main_pwm.c: 84: if(ad == 60) ad = 140;
+"84
+[e $ ! == _ad -> -> 60 `i `ui 106  ]
+[e = _ad -> -> 140 `i `ui ]
+[e $U 107  ]
+"85
+[e :U 106 ]
+[; ;main_pwm.c: 85: else ad = 60;
+[e = _ad -> -> 60 `i `ui ]
+[e :U 107 ]
+[; ;main_pwm.c: 86: cnt_2 = 0;
+"86
+[e = _cnt_2 -> -> 0 `i `ui ]
+"87
+}
+[e :U 105 ]
+[; ;main_pwm.c: 87: }
+[; ;main_pwm.c: 88: PORTCbits.RC0 = 1;
+"88
+[e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
+[; ;main_pwm.c: 89: PORTCbits.RC1 = 0;
+"89
+[e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
+[; ;main_pwm.c: 90: PORTCbits.RC2 = 0;
+"90
+[e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
+"91
 }
 [e :U 96 ]
-[; ;main_pwm.c: 81: }
-[; ;main_pwm.c: 82: }
-[; ;main_pwm.c: 83: }
-"83
+[; ;main_pwm.c: 91: }
+[; ;main_pwm.c: 92: }
+"92
 [e :UE 95 ]
 }
